@@ -7,8 +7,11 @@ Projeto que visa explorar o funcionamento e aplicabildiade do sistema de control
 
 
 # Esboço da estrutura fisica
-![ALOW](Imagens/EsbocoSemMedidas.PNG)
-![ALOW](Imagens/EsbocoComMedidas.PNG)
+<div align="center">  
+  <img src="https://github.com/osmar-candido/Equilibrador-PID/blob/32d471ab13c34fbf4f6023804e4090dc3f51ee7b/Imagens/Esbo%C3%A7oComMedidas.jpg" width="400">
+  <img src="https://github.com/osmar-candido/Equilibrador-PID/blob/32d471ab13c34fbf4f6023804e4090dc3f51ee7b/Imagens/Esbo%C3%A7oSemMedidas.jpg" width="400">
+</div>
+  <img src="https://github.com/osmar-candido/Equilibrador-PID/blob/32d471ab13c34fbf4f6023804e4090dc3f51ee7b/Imagens/MontagemInicial.jpg" width="400">
 
 # Microcontrolador
 Para o controle do equipamento será utilizado um arduino UNO que é munido do MCU Atmel328p que opera a 16Mhz. 
