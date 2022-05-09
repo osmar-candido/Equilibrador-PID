@@ -1,5 +1,6 @@
 <h1 align="center"> Equilibrador PID </h1>
 
+![ALOW](Imagens/Logo.PNG)
 
 # Introdução
 Projeto que visa explorar o funcionamento do sistema de controle PI, para isso o objetivo do mesmo será controlar a posição de uma bolinha, a qual será equilibrada em uma barra.
