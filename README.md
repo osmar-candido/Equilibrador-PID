@@ -5,4 +5,4 @@ Projeto que visa criar um posicionador de uma bolinha, a qual será equilibrada 
 # Sensores e atuadores
 # Metodologia
 # Lista de materiais
-![teste](abc.png)
+![teste](Imagens/abc.png)
