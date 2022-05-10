@@ -18,7 +18,7 @@ Projeto que visa explorar o funcionamento e aplicabilidade do sistema de control
 </div>
 
 # Microcontrolador
-Para o controle do equipamento será utilizado um [Arduino UNO]() que é munido do MCU [Atmega328P]() que opera a 16Mhz. 
+Para o controle do equipamento será utilizado um [Arduino UNO]() que é munido do MCU [Atmega328P](https://pdf1.alldatasheet.com/datasheet-pdf/view/241077/ATMEL/ATMEGA328P.html) que opera a 16Mhz. 
 O motivo de sua escolha estão além do fator de disponibilidade, esta escolha se baseia na capacidade de processamento, seus atuadores disponíveis, facilidade de debug e o sistema nativo de comunicação Serial. Desta forma cumprindo os requisitos desejaveis para a execução do projeto. Claramente, unindo a isso a vasta comunidade já existente ao redor do mesmo o torna proprício para essa aplicação de metodologias.
 
 # Sensores e atuadores
