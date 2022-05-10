@@ -1,4 +1,4 @@
-<h1 align="center"> Equilibrador PID </h1>
+<h1 align="center"> Equilibrador PID (WIP) </h1>
 
 ![ALOW](Imagens/Logo.PNG)
 
