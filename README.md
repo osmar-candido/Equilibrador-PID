@@ -36,16 +36,16 @@ Já para o sensor será utilizado o [HC-SR04](https://storage.googleapis.com/bau
 
 # Lista de materiais
  - `Estrutura`
-   - [Perfil de Aluminio leve v-Slot 40x40]()
+   - [Perfil de Aluminio leve v-Slot 40x40](https://loja.forsetisolucoes.com.br/perfil-estrutural-em-aluminio-40x40-basico-canal-8-t-slot-tslot)
      - Cortes: 
        -  2 un. 400mm
        -  3 un. 150mm
-   - [Placa de conexão 90°]() 1 un.
-   - [Capa de fechamento frontal quadrada]() 1 un.
-   - [Polia Sincronizadora GT2 20 Dentes]() 2 un.
-   - [Correia Sincronizadora GT2]() 600mm
-   - [mola Tensionadora anti folga para Correia]() 1 un.
-   - [Chapa L para Tensionamento de Correia]() 2 un.
+   - [Placa de conexão 90°](https://loja.forsetisolucoes.com.br/placa-de-conexao-montagem-90-graus-para-perfil-estrutural-em-aluminio) 1 un.
+   - [Capa de fechamento frontal quadrada](https://loja.forsetisolucoes.com.br/capa-de-fechamento-frontal-quadrada-preta-para-perfil-estrutural-em-aluminio) 1 un.
+   - [Polia Sincronizadora GT2 20 Dentes](https://loja.forsetisolucoes.com.br/polia-sincronizadora-gt2-em-aluminio-com-20-dentes) 2 un.
+   - [Correia Sincronizadora GT2](https://loja.forsetisolucoes.com.br/correia-sincronizadora-gt2-aberta) 600mm
+   - [mola Tensionadora anti folga para Correia](https://loja.forsetisolucoes.com.br/mola-tensionadora-anti-folga-para-correia-6mm) 1 un.
+   - [Chapa L para Tensionamento de Correia](https://loja.forsetisolucoes.com.br/chapa-l-para-tensionamento-de-correias-gt2-5mm-e-6mm) 2 un.
  - `Atuadores e Demais Componentes`
    - [Motor de Passo]() 1 un.
    - [Driver TB6600]() 1 un.  
