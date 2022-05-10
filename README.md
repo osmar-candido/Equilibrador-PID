@@ -46,6 +46,7 @@ Já para o sensor será utilizado o [HC-SR04](https://storage.googleapis.com/bau
    - [Correia Sincronizadora GT2](https://loja.forsetisolucoes.com.br/correia-sincronizadora-gt2-aberta) 600mm
    - [mola Tensionadora anti folga para Correia](https://loja.forsetisolucoes.com.br/mola-tensionadora-anti-folga-para-correia-6mm) 1 un.
    - [Chapa L para Tensionamento de Correia](https://loja.forsetisolucoes.com.br/chapa-l-para-tensionamento-de-correias-gt2-5mm-e-6mm) 2 un.
+   - [Apoio Ajustável emborrachado]() 1 un.
  - `Atuadores e Demais Componentes`
    - [Motor de Passo]() 1 un.
    - [Driver TB6600]() 1 un.  
