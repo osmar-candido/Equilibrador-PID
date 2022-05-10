@@ -28,7 +28,7 @@ Já para o sensor será utilizado o [HC-SR04](https://storage.googleapis.com/bau
 # Metodologia
 
 # Lista de materiais
- - Estrutura
+ - `Estrutura`
    - [Perfil de Aluminio leve v-Slot 40x40]()
      - Cortes: 
        -  2 un. 400mm
@@ -39,7 +39,7 @@ Já para o sensor será utilizado o [HC-SR04](https://storage.googleapis.com/bau
    - [Correia Sincronizadora GT2]() 600mm
    - [mola Tensionadora anti folga para Correia]() 1 un.
    - [Chapa L para Tensionamento de Correia]() 2 un.
- - Atuadores e demais componentes.
+ - `Atuadores e Demais Componentes`
    - [Motor de Passo]() 1 un.
    - [Driver TB6600]() 1 un.  
    - [Bola de Tenis de Mesa]() 1 un.  
