@@ -19,7 +19,7 @@ void configuraSensor() {
   pinMode(pinTrig, OUTPUT); // configura pino TRIG como saída
   pinMode(pinEcho, INPUT); // configura pino ECHO como entrada
   pinMode(alimentacaoSensor, OUTPUT);
-  digitalWrite(AlimentacaoSensor, HIGH);
+  digitalWrite(alimentacaoSensor, HIGH);
   digitalWrite(pinTrig, LOW);
 }
 

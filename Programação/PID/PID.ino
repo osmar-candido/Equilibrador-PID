@@ -4,18 +4,21 @@
 
 extern void configuraSensor();
 extern void sensor();
+extern void configuraMotor();
+extern void motor(bool direcao);
 
-
-
+bool direcao=false;
 
 void setup() {
-  // put your setup code here, to run once:
   configuraSensor();
+  configuraMotor();
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
   sensor();
-
+  // PID ---------
   
+  
+  //
+  motor(direcao);
 }
