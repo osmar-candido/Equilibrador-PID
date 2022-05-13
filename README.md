@@ -34,7 +34,7 @@ Já para o sensor será utilizado o [HC-SR04](https://storage.googleapis.com/bau
 6. Passo - `Programação`
 7. Passo - `Conclusão`
 
-# Método de controle :shipit::
+# Método de controle :shipit:
 - Sistema de Primeira Ordem
 - Sistema de Segunda Ordem
 - Sistema Subamortecido
