@@ -34,6 +34,12 @@ Já para o sensor será utilizado o [HC-SR04](https://storage.googleapis.com/bau
 6. Passo - `Programação`
 7. Passo - `Conclusão`
 
+# Método de controle
+- Sistema de Primeira Ordem
+- Sistema de Segunda Ordem
+- Sistema Subamortecido
+- Sistema Criticamente amortecido
+
 # Lista de materiais
  - `Estrutura`
    - [Perfil de Aluminio leve v-Slot 40x40](https://loja.forsetisolucoes.com.br/perfil-estrutural-em-aluminio-40x40-basico-canal-8-t-slot-tslot)
