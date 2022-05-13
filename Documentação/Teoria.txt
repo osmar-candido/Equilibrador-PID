@@ -1,0 +1,8 @@
+Teoria Sobre o PID
+
+Sistema de primeira ordem
+
+Sistema de Segunda Ordem Subamortecido
+
+Sistema de segunda Ordem criticamente amortecido
+
