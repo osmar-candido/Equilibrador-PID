@@ -2,7 +2,7 @@
 #define pulStep 5
 
 void configuraMotor();
-void passo(bool direcao);
+void passo(int direcao);
 
 
 
@@ -13,7 +13,7 @@ void configuraMotor() {
   digitalWrite(dirStep, LOW);
   digitalWrite(pulStep, LOW);
 }
-void passo(bool direcao) {
+void passo(int direcao) {
   switch (direcao) {
     case 0:
       digitalWrite(dirStep, LOW);
