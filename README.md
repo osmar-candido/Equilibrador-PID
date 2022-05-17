@@ -26,13 +26,13 @@ O controle do ângulo da barra será efetuado por um [motor de passo]() ligado p
 Já para o sensor será utilizado o [HC-SR04](https://storage.googleapis.com/baudaeletronicadatasheet/HC-SR04.pdf) que consiste em um sensor de distância ultrassônico, o qual será responsável por identificar a distancia bolinha assim sabendo sua posição ao longo da barra.
 
 # Metodologia
-1. Passo - `Definição dos Objetivos do Projeto`
-2. Passo - `Esboço Estrutura Inicial`
-3. Passo - `Esboço Estrutura Detalhado`
-4. Passo - `Montagem`
-5. Passo - `Alocação dos demais componentes`
-6. Passo - `Programação`
-7. Passo - `Conclusão`
+- [x] 1. Passo - `Definição dos Objetivos do Projeto`
+- [x] 2. Passo - `Esboço Estrutura Inicial`
+- [x] 3. Passo - `Esboço Estrutura Detalhado`
+- [x] 4. Passo - `Montagem`
+- [ ] 5. Passo - `Alocação dos demais componentes`
+- [ ] 6. Passo - `Programação`
+- [ ] 7. Passo - `Conclusão`
 
 # Método de controle :shipit:
 - Sistema de Primeira Ordem
