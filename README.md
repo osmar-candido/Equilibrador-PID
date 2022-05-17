@@ -22,7 +22,7 @@ Para o controle do equipamento será utilizado um [Arduino UNO](https://store-us
 O motivo de sua escolha estão além do fator de disponibilidade, esta escolha se baseia na capacidade de processamento, seus atuadores disponíveis, facilidade de debug e o sistema nativo de comunicação Serial. Desta forma cumprindo os requisitos desejaveis para a execução do projeto. Claramente, unindo a isso a vasta comunidade já existente ao redor do mesmo o torna proprício para essa aplicação de metodologias.
 
 # Sensores e atuadores
-O controle do ângulo da barra será efetuado por um [motor de passo]() ligado por correia a barra, o motor será controlador por um driver [TB6600](https://www.mcielectronics.cl/website_MCI/static/documents/TB6600_data_sheet.pdf) que possui funções como fracionamento dos passos do motor.
+O controle do ângulo da barra será efetuado por um [motor de passo](https://documents.pub/document/23km-c051-07v.html) ligado por correia a barra, o motor será controlador por um driver [TB6600](https://www.mcielectronics.cl/website_MCI/static/documents/TB6600_data_sheet.pdf) que possui funções como fracionamento dos passos do motor.
 Já para o sensor será utilizado o [HC-SR04](https://storage.googleapis.com/baudaeletronicadatasheet/HC-SR04.pdf) que consiste em um sensor de distância ultrassônico, o qual será responsável por identificar a distancia bolinha assim sabendo sua posição ao longo da barra.
 
 # Metodologia
@@ -34,7 +34,7 @@ Já para o sensor será utilizado o [HC-SR04](https://storage.googleapis.com/bau
 - [ ] 6. Passo - `Programação`
 - [ ] 7. Passo - `Conclusão`
 
-# Método de controle :shipit:
+# Método de controle
 - Sistema de Primeira Ordem
 - Sistema de Segunda Ordem
 - Sistema Subamortecido
@@ -52,24 +52,13 @@ Já para o sensor será utilizado o [HC-SR04](https://storage.googleapis.com/bau
    - [Correia Sincronizadora GT2](https://loja.forsetisolucoes.com.br/correia-sincronizadora-gt2-aberta) 600mm
    - [mola Tensionadora anti folga para Correia](https://loja.forsetisolucoes.com.br/mola-tensionadora-anti-folga-para-correia-6mm) 1 un.
    - [Chapa L para Tensionamento de Correia](https://loja.forsetisolucoes.com.br/chapa-l-para-tensionamento-de-correias-gt2-5mm-e-6mm) 2 un.
-   - [Apoio Ajustável emborrachado]() 1 un.
+   - [Apoio Ajustável emborrachado](https://www.loja.forsetisolucoes.com.br/pe-nivelador-articulado-reforcado-em-aco-rexroth) 1 un.
  - `Atuadores e Demais Componentes`
-   - [Motor de Passo]() 1 un.
-   - [Driver TB6600]() 1 un.  
-   - [Bola de Tenis de Mesa]() 1 un.  
+   - [Motor de Passo](https://www.saravati.com.br/motor-de-passo-nema-23-7-kgfcm-14a?utm_source=Site&utm_medium=GoogleMerchant&utm_campaign=GoogleMerchant) 1 un.
+   - [Driver TB6600](https://www.piscaled.com.br/driver-motor-passo-tb67s109aftg-35a-similar-tb6600?utm_source=Site&utm_medium=GoogleMerchant&utm_campaign=GoogleMerchant&gclid=CjwKCAjwj42UBhAAEiwACIhADj5mEDsMmJBUuQFbbl36qDpT28BylLcsfpUleVGSf7WymHHi6qtKFRoCSRQQAvD_BwE) 1 un.  
+   - [Bola de Tenis de Mesa](https://www.google.com/search?q=bola+tenis+de+mesa&rlz=1C1FCXM_pt-PTBR999BR999&sxsrf=ALiCzsb4lQUk771blU6INnRFCYrKUPQpnQ%3A1652788022816&ei=NouDYvXGMaCH5OUPyOq48Aw) 1 un.  
    - [Fonte Alimentação]() 1 un.  
    - [Arduino Uno]() 1 un.  
    - [Display LCD 16x2]() 1 un.  
    - [Modulo I2C para display]() 1 un.  
    - [Botão](https://pt.aliexpress.com/item/1005001865063570.html?spm=a2g0o.productlist.0.0.30387d35B8lVv0&algo_pvid=47c8a6da-a321-4caf-8b6b-58afc68bd679&algo_exp_id=47c8a6da-a321-4caf-8b6b-58afc68bd679-28&pdp_ext_f=%7B%22sku_id%22%3A%2212000017981726696%22%7D&pdp_npi=2%40dis%21BRL%21%2140.34%21%21%21%21%21%400bb0622c16521390021906905e5017%2112000017981726696%21sea) 3 un.  
-
-
-
-
-
-
-
-
-
-
-
