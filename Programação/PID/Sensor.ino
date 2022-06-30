@@ -17,7 +17,7 @@ int calibraFim();
 // Obs. Velocidade do som = 340,29 m/s = 0.00034029 m/us
 const float velocidadeSom = 0.00034029; // em metros por microsegundo
 float tempoEcho = 0;
-int debugMode = 1;
+extern int debugMode;
 long somador = 0;
 float centimetros = 0;
 int fimEsq = 0;

@@ -1,6 +1,6 @@
 #define dirStep 4
 #define pulStep 5
-
+#define enableMotor 6
 void configuraMotor();
 void passo(int direcao);
 
@@ -10,8 +10,10 @@ void passo(int direcao);
 void configuraMotor() {
   pinMode(dirStep, OUTPUT);
   pinMode(pulStep, OUTPUT);
+  pinMode(enableMotor, OUTPUT);   
   digitalWrite(dirStep, LOW);
   digitalWrite(pulStep, LOW);
+  digitalWrite(enableMotor, LOW);
 }
 void passo(int direcao) {
   switch (direcao) {
