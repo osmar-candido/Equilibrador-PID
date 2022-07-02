@@ -1,6 +1,7 @@
 #define dirStep 4
 #define pulStep 5
 #define enableMotor 6
+
 void configuraMotor();
 void passo(int direcao);
 

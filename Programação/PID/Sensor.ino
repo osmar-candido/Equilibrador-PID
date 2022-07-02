@@ -1,4 +1,3 @@
-
 #define pinTrig 12 // pino usado para disparar os pulsos do sensor
 #define pinEcho 13    // pino usado para ler a saida do sensor
 #define pinFim1 9

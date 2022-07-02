@@ -1,33 +1,33 @@
-#include <LiquidCrystal_I2C.h>
-#define enderecoDisplay 0x27
+
+#define enderecoDisplay 0x22
 
 LiquidCrystal_I2C lcd(enderecoDisplay, 16, 2);
 
-// *************Adicionar Interrupt pino 2 para o teclado
 
 void configuraDisplay();
 void tela();
 
-void ISRteclado();
 void mostraDisplay();
 
-int Tela = 100;
+int Tela = 500;
 int aTela = Tela;
-
+int tID;
 
 void configuraDisplay() {
   lcd.init();
   lcd.backlight();
+  tela(100);
 }
 
-void tela(){
+void tela(int tID){
+  Tela = tID;
   if (Tela != aTela) {
     lcd.clear();
     switch (Tela) {
       case 100:
         lcd.setCursor(0, 0);
         lcd.print("Equilibrador PID");
-        lcd.setCursor(1, 0);
+        lcd.setCursor(0, 1);
         lcd.print(" Osmar e Thomas ");
         break;
       //case 1:
@@ -38,9 +38,4 @@ void tela(){
 }
 void mostraDisplay() {
 
-}
-void ISRteclado(){
- //Lê Teclado
-
-  
 }
