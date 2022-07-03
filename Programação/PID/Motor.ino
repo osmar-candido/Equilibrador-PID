@@ -1,40 +1,38 @@
-#define dirStep 4
-#define pulStep 5
-#define enableMotor 6
+#define dirStep 13
+#define pulStep 12
+#define enableMotor 11
 
 void configuraMotor();
 void passo(int direcao);
 
-
-
+extern bool FimEsq;
+extern bool FimDir;
 
 void configuraMotor() {
   pinMode(dirStep, OUTPUT);
   pinMode(pulStep, OUTPUT);
-  pinMode(enableMotor, OUTPUT);   
+  pinMode(enableMotor, OUTPUT);
   digitalWrite(dirStep, LOW);
   digitalWrite(pulStep, LOW);
   digitalWrite(enableMotor, LOW);
 }
 void passo(int direcao) {
-  switch (direcao) {
-    case 0:
-      digitalWrite(dirStep, LOW);
-      //DDRD = DDRD & ~ (1 << PD5);
-      break;
-    case 1:
-      digitalWrite(dirStep, HIGH);
-      //DDRD = DDRD | (1 << PD5); // Nível HIGH
-      break;
-    default:
-      digitalWrite(dirStep, LOW);
-      //DDRD = DDRD & ~ (1 << PD5);
-      break;
+  if (FimEsq == HIGH && FimDir == LOW) {
+
+    
+    
+    
+    switch (direcao) {
+      case 0:
+        digitalWrite(dirStep, LOW);
+        break;
+      case 1:
+        digitalWrite(dirStep, HIGH);
+        break;
+    }
+    digitalWrite(pulStep, HIGH);
+    delayMicroseconds(10);
+    digitalWrite(pulStep, LOW);
+    delayMicroseconds(10);
   }
-  digitalWrite(pulStep, HIGH);
-  //DDRD = DDRD | (1 << PD5); // Nível HIGH
-  delayMicroseconds(10);
-  digitalWrite(pulStep, LOW);
-  //DDRD = DDRD & ~ (1 << PD5);
-  delayMicroseconds(10);
 }
