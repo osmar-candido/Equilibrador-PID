@@ -30,7 +30,7 @@ Já para o sensor será utilizado o [HC-SR04](https://storage.googleapis.com/bau
 - [x] 2. Passo - `Esboço Estrutura Inicial`
 - [x] 3. Passo - `Esboço Estrutura Detalhado`
 - [x] 4. Passo - `Montagem`
-- [ ] 5. Passo - `Alocação dos demais componentes`
+- [x] 5. Passo - `Alocação dos demais componentes`
 - [ ] 6. Passo - `Programação`
 - [ ] 7. Passo - `Conclusão`
 
