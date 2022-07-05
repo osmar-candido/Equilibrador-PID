@@ -1,4 +1,4 @@
-#define enderecoTeclado 0x20
+ #define enderecoTeclado 0x20
 #define intTeclado 2
 
 //Protótipo Funções
