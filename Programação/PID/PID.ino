@@ -1,6 +1,6 @@
 #include <Wire.h>
 #include <LiquidCrystal_I2C.h>
-
+#include <TimerOne.h>
 /*
 
   pin | cabo8 | função
@@ -11,7 +11,7 @@
    6  -   1   - echo
    5  -   7   - trigger
    4  -   6   - fim de curso lado sensor
-  GND  -   5   - gnd
+  GND -   5  - gnd
 */
 
 extern void configuraSensor();
@@ -19,18 +19,20 @@ extern void configuraMotor();
 extern void sensor();
 extern void configuraDisplay();
 extern void configuraTeclado();
-
-extern void motor(bool direcao);
+extern void desabilitaDrive();
+extern void passo(int direcao);
 extern void lerTeclado();
 
 
 bool direcao = false;
-int debugMode = 0;
+int debugMode = 1;
 bool switch1 = false;
 bool switch2 = false;
 bool switch3 = false;
 
 extern int leTeclado;
+extern bool sw3;
+extern float centimetros;
 
 void setup() {
   Serial.begin(9600);
@@ -41,21 +43,23 @@ void setup() {
   setupPinos();
 }
 
+int adirecao = 0;
 
 void loop() {
   sensor();
-  if (leTeclado == 1) {
   lerTeclado();
-  leTeclado == 0;
+  if (centimetros < 47) {
+    if (centimetros > 21.7) {
+      adirecao = 0;
+    } else {
+      adirecao = 1;
+    }
+    passo(adirecao);
+  }else{
+    //Serial.println("sem bola");
+    desabilitaDrive();
   }
-  //Serial.println(sensor);
-  // PID ---------
-
-
-  //
-  //motor(direcao);
 }
-
 int comandoSerial;
 
 void setupPinos() {
