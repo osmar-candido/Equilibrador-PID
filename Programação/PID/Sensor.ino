@@ -3,8 +3,8 @@
 #define pinFim1 7
 #define pinFim2 4
 
-#define numeroLeitura 30 //quantas leituras a fazer para o filtro
-#define tempoLeitura 5 //tempo entre leitura em millis
+#define numeroLeitura 5 //quantas leituras a fazer para o filtro
+#define tempoLeitura 1 //tempo entre leitura em millis
 /*----------Protótipo Funções----------*/
 void configuraSensor(); //vai no setup
 void sensor(); //vai no loop
@@ -33,24 +33,26 @@ void configuraSensor() { //função inserida no setup onde configura todas as en
   digitalWrite(pinTrig, LOW);
 }
 void sensor() { //efetua a leitura do sensor fim de curso e do sensor ultrassonico aplicando filtro retornando a variavel centimetros com a distancia medida
-  
-  if (digitalRead(pinFim1) == HIGH) {
-    FimEsq = true;
-  }else{
+
+  if (digitalRead(pinFim1) == HIGH) { //sensor do lado do driver
     FimEsq = false;
+  } else {
+    //Serial.println("Sensor 1");
+    FimEsq = true;
   }
-  if (digitalRead(pinFim2) == HIGH) {
-    FimDir = true;
-  }else{
+  if (digitalRead(pinFim2) == HIGH) { //sensor do lado do ultrassonico
     FimDir = false;
+  } else {
+    //Serial.println("Sensor 2");
+    FimDir = true;
   }
-  
+
   somador = 0; //reset da variavel onde será armazenado a soma das leituras
   for (int cont = 0; cont <= numeroLeitura; cont = cont + 1) { //efetua varias leituras a fim de reduzir ruido
     gatilhoSensor(); // envia pulso trigger (gatilho) para disparar o sensor
     tempoEcho = pulseInLong(pinEcho, HIGH); // mede o tempo de duração do sinal no pino de leitura em us
     somador = somador + tempoEcho;
-    delay(tempoLeitura);
+    //delay(tempoLeitura);
   }
   tempoEcho = somador / numeroLeitura; //efetua média das leituras
   centimetros = calculaDistancia(tempoEcho) * 100; //calcula a distancia em centimetros
@@ -63,14 +65,14 @@ void sensor() { //efetua a leitura do sensor fim de curso e do sensor ultrassoni
     Serial.print("Distancia em centimetros: ");
     Serial.println(centimetros, 1);
     Serial.println("------------------------------------");
-  }
-  if (debugMode == 1 && (calculaDistancia(tempoEcho) * 100) < 40.0) { //mostra os dados em grafico via serial
+    }
+    if (debugMode == 1 && (calculaDistancia(tempoEcho) * 100) < 100.0) { //mostra os dados em grafico via serial
     Serial.print(centimetros, 1);
     Serial.print(",");
     Serial.print(40.0);
     Serial.print(",");
     Serial.println(0.0);
-  }
+    }
 }
 
 
