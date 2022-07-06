@@ -6,11 +6,11 @@
 #define numeroLeitura 5 //quantas leituras a fazer para o filtro
 #define tempoLeitura 1 //tempo entre leitura em millis
 /*----------Protótipo Funções----------*/
-void configuraSensor(); //vai no setup
-void sensor(); //vai no loop
-void gatilhoSensor();
-float calculaDistancia(float tempoMicrossegundos);
-int calibraFim();
+void configuraSensor();                             //vai no setup, configura os pinos e seta a forma inicial
+void sensor();                                      //efetua a leitura do sensor
+void gatilhoSensor();                               //faz o pulso no sensor ultrassonico 
+float calculaDistancia(float tempoMicrossegundos);  //converte o tempo para a distancia
+
 
 /*----------Variaveis----------*/
 // Obs. Velocidade do som = 340,29 m/s = 0.00034029 m/us
@@ -32,6 +32,7 @@ void configuraSensor() { //função inserida no setup onde configura todas as en
   pinMode(pinFim2, INPUT);
   digitalWrite(pinTrig, LOW);
 }
+
 void sensor() { //efetua a leitura do sensor fim de curso e do sensor ultrassonico aplicando filtro retornando a variavel centimetros com a distancia medida
 
   if (digitalRead(pinFim1) == HIGH) { //sensor do lado do driver
@@ -50,9 +51,10 @@ void sensor() { //efetua a leitura do sensor fim de curso e do sensor ultrassoni
   somador = 0; //reset da variavel onde será armazenado a soma das leituras
   for (int cont = 0; cont <= numeroLeitura; cont = cont + 1) { //efetua varias leituras a fim de reduzir ruido
     gatilhoSensor(); // envia pulso trigger (gatilho) para disparar o sensor
-    tempoEcho = pulseInLong(pinEcho, HIGH); // mede o tempo de duração do sinal no pino de leitura em us
+    tempoEcho = pulseInLong(pinEcho, HIGH,2900); // mede o tempo de duração do sinal no pino de leitura em us
     somador = somador + tempoEcho;
     //delay(tempoLeitura);
+    
   }
   tempoEcho = somador / numeroLeitura; //efetua média das leituras
   centimetros = calculaDistancia(tempoEcho) * 100; //calcula a distancia em centimetros

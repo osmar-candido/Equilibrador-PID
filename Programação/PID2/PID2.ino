@@ -31,7 +31,9 @@ bool switch2 = false;
 bool switch3 = false;
 
 extern int leTeclado;
+extern bool sw2;
 extern bool sw3;
+
 extern float centimetros;
 
 void setup() {
@@ -42,39 +44,21 @@ void setup() {
   configuraTeclado();
   setupPinos();
 }
-
-int adirecao = 0;
-
 void loop() {
+  atuadores();
   sensor();
   lerTeclado();
   passo(sw3);
-  /*if (centimetros < 47) {
-    if (centimetros > 21.7) {
-      adirecao = 0;
-    } else {
-      adirecao = 1;
-    }
-    passo(adirecao);
-  }else{
-    //Serial.println("sem bola");
-    desabilitaDrive();
-  }*/
+  debugCortaLinha();
 }
-int comandoSerial;
-
+void atuadores(){
+  if(sw2 == 0){
+    debugMode = 1;
+  }else{
+    debugMode = 0;
+  }
+}
 void setupPinos() {
-  /*
-    pin | cabo8 | função
-    13  -   8   - driver laranja
-    12  -   3   - driver marrom
-    11  -   4   - driver vermelho
-    7  -   2   - fim de curso
-    6  -   1   - echo
-    5  -   7   - trigger
-    4  -   6   - fim de curso lado sensor
-    GND  -   5   - GND
-  */
   pinMode(13, OUTPUT);
   pinMode(12, OUTPUT);
   pinMode(11, OUTPUT);
@@ -82,4 +66,7 @@ void setupPinos() {
   pinMode(6, INPUT);
   pinMode(5, OUTPUT);
   pinMode(4, INPUT);
+}
+void debugCortaLinha(){
+  Serial.println("");  
 }
