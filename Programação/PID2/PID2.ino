@@ -29,6 +29,7 @@ int debugMode = 1;
 bool switch1 = false;
 bool switch2 = false;
 bool switch3 = false;
+float setpoint = 38.0;
 
 extern int leTeclado;
 extern bool sw2;
@@ -48,8 +49,13 @@ void loop() {
   atuadores();
   sensor();
   lerTeclado();
-  passo(sw3);
-  debugCortaLinha();
+  if(setpoint < centimetros){
+    passo(0);
+  }else{
+    passo(1);
+  }
+  //debugCortaLinha();
+  delay(1);
 }
 void atuadores(){
   if(sw2 == 0){

@@ -21,10 +21,10 @@ extern int debugMode;
 long somador = 0;
 float centimetros = 0;
 float medidas[5] = {0, 0, 0, 0, 0};
-
+int long contadorErro = 0;
 bool FimEsq = false;
 bool FimDir = false;
-
+int long TimingSensor = 0;
 /*----------Funções----------*/
 
 void configuraSensor() { //função inserida no setup onde configura todas as entradas e saidas
@@ -33,6 +33,7 @@ void configuraSensor() { //função inserida no setup onde configura todas as en
   pinMode(pinFim1, INPUT);
   pinMode(pinFim2, INPUT);
   digitalWrite(pinTrig, LOW);
+  TimingSensor = millis();
 }
 
 /*
@@ -46,30 +47,44 @@ void configuraSensor() { //função inserida no setup onde configura todas as en
 
 void sensor() {
   fimCurso();
-  gatilhoSensor(); // envia pulso trigger (gatilho) para disparar o sensor
-  tempoEcho = pulseInLong(pinEcho, HIGH, 2900);
-  centimetros = calculaDistancia(tempoEcho) * 100;
-  atualizaMedia(centimetros);
-  sensorDebug();
+  if (TimingSensor + 60 <= millis()) {
+    gatilhoSensor(); // envia pulso trigger (gatilho) para disparar o sensor
+    tempoEcho = pulseInLong(pinEcho, HIGH, 2900);
+    if (tempoEcho < 2500) {
+      atualizaMedia((calculaDistancia(tempoEcho) * 100));
+      sensorDebug();
+    }
+    TimingSensor = millis();
+  }
 }
 
 bool atualizaMedidas = false;
+
 void atualizaMedia(float medida) {
   filtro(medida);
-  if (atualizaMedidas == true&& medida > 3.0) {
+  if (atualizaMedidas == true && medida > 3.0 && medida < 50.0) {
     medidas[0] = medidas[1];
     medidas[1] = medidas[2];
     medidas[2] = medidas[3];
     medidas[3] = medidas[4];
     medidas[4] = medida;
     centimetros = (medidas[4] * 0.4) + (medidas[4] * 0.25) + (medidas[4] * 0.20) + (medidas[4] * 0.10) + (medidas[4] * 0.5);
+    atualizaMedidas = false;
   }
 }
 
-void filtro(float medida) {
-  if ( medida / medidas[4] > 0, 8 && medida / medidas[4] < 1, 3) {
-    atualizaMedidas = true;
+void filtro(float amedida) {
+  if ( (amedida / medidas[4]) > 0.9 || amedida / medidas[4] < 1.1) {
+    if (amedida < 48.0) {
+      atualizaMedidas = true;
+    }
+  } else {
+    contadorErro = contadorErro + 1;
+    lcd.setCursor(0, 0);
+    lcd.print("vish! ");
+    lcd.print(contadorErro);
   }
+
 }
 
 
@@ -94,8 +109,8 @@ void sensorDebug() {
     Serial.println(centimetros, 1);
     Serial.println("------------------------------------");
   }
-  if (debugMode == 1 && (calculaDistancia(tempoEcho) * 100) < 100.0) { //mostra os dados em grafico via serial
-    Serial.print(centimetros, 1);   
+  if (debugMode == 1 && centimetros < 57.0) { //mostra os dados em grafico via serial
+    Serial.println(centimetros, 1);
   }
 }
 void fimCurso() {

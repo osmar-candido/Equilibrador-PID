@@ -10,7 +10,7 @@ extern bool FimEsq;
 extern bool FimDir;
 extern bool sw1;
 extern int debugMode;
-int tempo = 10000;
+int tempo = 300;
 float frequencia = 300;
 
 void configuraMotor() {
