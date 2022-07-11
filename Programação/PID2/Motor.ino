@@ -27,9 +27,11 @@ void desabilitaDrive() {
 void motorDebug() {
   if (debugMode == 1) { //mostra os dados em grafico via serial
     frequencia = 1.0 / (float(tempo) / 1000000.0);
-    frequencia = map(frequencia,0.0,3500,0.0,50.0);
-    Serial.print(",");
-    Serial.print(frequencia, 1);
+    frequencia = map(frequencia, 0.0, 3500, 0.0, 50.0);
+    if (sw1 == false) {
+      Serial.print(",");
+      Serial.print(frequencia, 1);
+    }
   }
 }
 void passo(int direcao) {
@@ -38,7 +40,6 @@ void passo(int direcao) {
     Timer1.pwm(10, 512);
     configurauma = 0;
   }
-  motorDebug();
   switch (direcao) {
     case 0:
       digitalWrite(dirStep, LOW);

@@ -57,6 +57,9 @@ void loop() {
   //debugCortaLinha();
   delay(1);
 }
+
+
+
 void atuadores(){
   if(sw2 == 0){
     debugMode = 1;
