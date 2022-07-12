@@ -32,7 +32,7 @@ void tela(int tID) {
         lcd.setCursor(0, 1);
         lcd.print(" Osmar e Thomas ");
         break;
-      case 99:
+      default:
         lcd.clear();
         lcd.setCursor(0, 0);
         lcd.print("Tela N Existente");
