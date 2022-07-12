@@ -78,12 +78,12 @@ void filtro(float amedida) {
     if (amedida < 48.0) {
       atualizaMedidas = true;
     }
-  } else {
+  } /*else {
     contadorErro = contadorErro + 1;
     lcd.setCursor(0, 0);
     lcd.print("vish! ");
     lcd.print(contadorErro);
-  }
+  }*/
 
 }
 

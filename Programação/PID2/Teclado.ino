@@ -1,4 +1,4 @@
- #define enderecoTeclado 0x20
+#define enderecoTeclado 0x20
 #define intTeclado 2
 
 //   botoes em relação aos bits
@@ -16,6 +16,8 @@ void lerTeclado();
 void comparaDado();
 void chamaFuncao(int botao);
 void ISRteclado();
+extern void tela(int tID);
+
 
 //Variaveis
 byte btRead;
@@ -29,6 +31,15 @@ bool btCentro = false;
 bool sw1 = false;
 bool sw2 = false;
 bool sw3  = false;
+bool AbtCima = false;
+bool AbtBaixo = false;
+bool AbtDireita = false;
+bool AbtEsquerda = false;
+bool AbtCentro = false;
+int tempoAcionamento = 100;
+int velocidade = 0;
+int bTela = 1;
+
 
 //Funções
 void configuraTeclado() {
@@ -61,7 +72,7 @@ void comparaDado() {
   if (btRead != btLastRead) {
     /*for (int cont = 0; cont < 8; cont++) {
       Serial.print(bitRead(btRead, cont));
-    }*/
+      }*/
     Serial.println("");
     btCima      = bitRead(btRead, 6);
     btBaixo     = bitRead(btRead, 3);
@@ -73,10 +84,83 @@ void comparaDado() {
     sw3         = bitRead(btRead, 1);
 
     btLastRead  = btRead;
+    comparaBotao();
 
+  }
+}
+void comparaBotao() {
+  if (btCima != AbtCima) {
+    if (btCima == false) {
+      chamaFuncao(1);
+      Serial.println("Botao CIMAAAAAAA");
+    }
+    AbtCima = btCima;
     
+  }
+  if (btBaixo != AbtBaixo) {
+    if (btBaixo == false) {
+      chamaFuncao(2);
+    }
+    AbtBaixo = btBaixo;
+  }
+  if (btDireita != AbtDireita) {
+    if (btDireita == false) {
+      chamaFuncao(3);
+    }
+    AbtDireita = btDireita;
+  }
+  if (btEsquerda != AbtEsquerda) {
+    if (btEsquerda == false) {
+      chamaFuncao(4);
+    }
+    AbtEsquerda = btEsquerda;
+  }
+  if (btCentro != AbtCentro) {
+    if (btCentro == false) {
+      chamaFuncao(5);
+    }
+    AbtCentro = btCentro;
   }
 }
 void chamaFuncao(int botao) {
+  switch (botao) {
+    case 1://cima
+      switch (bTela) {
+        case 1:
+          velocidade = velocidade + 5;
+          break;
+        case 2:
+          tempoAcionamento = tempoAcionamento + 50;
+          break;
+      }
+      tela(bTela);
+      break;
+    case 2://baixo
+      switch (bTela) {
+        case 1:
+          velocidade = velocidade - 5;
+          break;
+        case 2:
+          tempoAcionamento = tempoAcionamento - 50;
+          break;
+      }
+      tela(bTela);
+      break;
+    case 4://Direta
+      bTela = bTela - 1;
+      tela(bTela);
+      break;
+    case 3://esquerda
+      bTela = bTela + 1;
+      tela(bTela);
+      break;
+    case 5://centro
+      bTela = 1;
+      tela(bTela);
+      break;
+    default:
+      tela(99);
+      break;
 
+  }
 }
