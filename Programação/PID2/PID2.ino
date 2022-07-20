@@ -13,7 +13,7 @@
    4  -   6   - fim de curso lado sensor
   GND -   5  - gnd
 */
-
+//chama a funções de outras abas
 extern void configuraSensor();
 extern void configuraMotor();
 extern void sensor();
@@ -26,6 +26,7 @@ extern int tempoAcionamento;
 extern int velocidade;
 extern void sensorDebug();
 
+//declaração das variaveis de uso
 bool direcao = false;
 int debugMode = 1;
 bool switch1 = false;
@@ -36,11 +37,12 @@ int long tempoAnterior = millis();
 bool executa1 = false;
 bool executa2 = false;
 int contador = 1;
+
+//chamada das variaveis externas
 extern int leTeclado;
 extern bool sw2;
 extern bool sw3;
 extern bool sw1;
-
 extern float centimetros;
 
 void setup() {
@@ -56,13 +58,6 @@ void loop() {
   sensor();
   lerTeclado();
   testes();
-  /*if(setpoint < centimetros){
-    passo(0);
-    }else{
-    passo(1);
-    }*/
-  //debugCortaLinha();
-  //delay(1);
 }
 
 void testes() {
@@ -70,8 +65,6 @@ void testes() {
     sensorDebug();
     Serial.print(",");
   }
-  
-
   if (sw3 == 1) {
     if(sw1 == 0){
       Serial.println(map(velocidade, 0, 100, 50, 0));
@@ -80,7 +73,6 @@ void testes() {
       executa2 = false;
       passo(map(velocidade, 0, 100, 50, 0));
       executa1 = true;
-      //Serial.println("lado 1");
     }
   }
   if (sw3 == 0) {
@@ -91,7 +83,6 @@ void testes() {
       executa1 = false;
       passo(map(velocidade, 0, 100, 50, 100));
       executa2 = true;
-      //Serial.println("lado 2");
     }
   }
 }
@@ -112,7 +103,4 @@ void setupPinos() {
   pinMode(6, INPUT);
   pinMode(5, OUTPUT);
   pinMode(4, INPUT);
-}
-void debugCortaLinha() {
-  Serial.println("");
 }
