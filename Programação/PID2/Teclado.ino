@@ -1,3 +1,4 @@
+//Definicao de pino e tela
 #define enderecoTeclado 0x20
 #define intTeclado 2
 
@@ -11,7 +12,7 @@
 //  bit 6 = A encoder
 //  bit 7 = B encoder
 
-//Protótipo Funções
+//Funções internas e externa
 void lerTeclado();
 void comparaDado();
 void chamaFuncao(int botao);
@@ -44,14 +45,15 @@ int bTela = 1;
 //Funções
 void configuraTeclado() {
   Wire.begin();
-  //attachInterrupt(digitalPinToInterrupt(intTeclado), ISRteclado, FALLING);
 }
 
+//Void para defir a funcao de teclado
 void ISRteclado() {
   leTeclado = 1;
 }
 
-void lerTeclado() { //modo de teclado local verifica se ha alguma alteração dos botoes e retorna um int referente a função detectada
+//modo de teclado local verifica se ha alguma alteração dos botoes e retorna um int referente a função detectada
+void lerTeclado() { 
   //   botoes em relação aos bits
   //  bit 0 = sw1
   //  bit 1 = sw3
@@ -68,11 +70,9 @@ void lerTeclado() { //modo de teclado local verifica se ha alguma alteração do
   }
 }
 
+//Void para Validar alteracaoes no estado de botoes 
 void comparaDado() {
   if (btRead != btLastRead) {
-    /*for (int cont = 0; cont < 8; cont++) {
-      Serial.print(bitRead(btRead, cont));
-      }*/
     Serial.println("");
     btCima      = bitRead(btRead, 6);
     btBaixo     = bitRead(btRead, 3);
@@ -88,11 +88,14 @@ void comparaDado() {
 
   }
 }
+
+//Void responsavel por definicao de aperto de botao
+//Compara cada estao atual dos botoes com a leitura anterior
 void comparaBotao() {
   if (btCima != AbtCima) {
     if (btCima == false) {
       chamaFuncao(1);
-      Serial.println("Botao CIMAAAAAAA");
+      Serial.println("Botao UP");
     }
     AbtCima = btCima;
     
@@ -122,39 +125,61 @@ void comparaBotao() {
     AbtCentro = btCentro;
   }
 }
+
+// Void para realizar a funcao especifica de cada botao 
 void chamaFuncao(int botao) {
+  // botao::
+  // 1 = cima
+  // 2 = baixo
+  // 3 = esquerda
+  // 4 = direita
+  // 5 = centra
+  
+  
+  // tela::
+  // 1 = Tela de velocidade aberta
+  // 2 = Tela de Tempo de Acionamento Aberta
+
+
+  //tela(bTela) >. Atualiza a tela apos comando
   switch (botao) {
-    case 1://cima
+    case 1:
       switch (bTela) {
         case 1:
+          //Aumenta velocidade do motor
           velocidade = velocidade + 5;
           break;
         case 2:
+          //Aumenta tempo de acionamento
           tempoAcionamento = tempoAcionamento + 50;
           break;
       }
       tela(bTela);
       break;
-    case 2://baixo
+    case 2:
       switch (bTela) {
         case 1:
+          //Diminui velocidade do motor
           velocidade = velocidade - 5;
           break;
         case 2:
+          //Diminui tempo de acionamento
           tempoAcionamento = tempoAcionamento - 50;
           break;
       }
       tela(bTela);
       break;
-    case 4://Direta
+    case 4:
+      //Navegacao entre as telas
       bTela = bTela - 1;
       tela(bTela);
       break;
-    case 3://esquerda
+    case 3:
+      //Navegacao entre as telas
       bTela = bTela + 1;
       tela(bTela);
       break;
-    case 5://centro
+    case 5:
       bTela = 1;
       tela(bTela);
       break;
