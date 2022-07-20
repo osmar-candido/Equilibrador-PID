@@ -24,6 +24,7 @@ extern void passo(int direcao);
 extern void lerTeclado();
 extern int tempoAcionamento;
 extern int velocidade;
+extern void sensorDebug();
 
 bool direcao = false;
 int debugMode = 1;
@@ -38,6 +39,7 @@ int contador = 1;
 extern int leTeclado;
 extern bool sw2;
 extern bool sw3;
+extern bool sw1;
 
 extern float centimetros;
 
@@ -64,36 +66,32 @@ void loop() {
 }
 
 void testes() {
-  /*if(setpoint < centimetros){
-    passo(0);
-    }else{
-    passo(100);
-    }*/
-  Serial.print(millis());
-  Serial.print("  ");
-  Serial.println(tempoAnterior);
+  if(sw1 == 0){
+    sensorDebug();
+    Serial.print(",");
+  }
+  
 
-  if (millis() > (tempoAnterior + tempoAcionamento)) {
-    contador = contador + 1;
-    tempoAnterior = millis();
-  }
-  if (contador == 3) {
-    executa1 = false;
-    executa2 = false;
-    contador = 1;
-  }
-  if (contador == 1) {
+  if (sw3 == 1) {
+    if(sw1 == 0){
+      Serial.println(map(velocidade, 0, 100, 50, 0));
+    }
     if (executa1 == false) {
+      executa2 = false;
       passo(map(velocidade, 0, 100, 50, 0));
       executa1 = true;
-      Serial.println("lado 1");
+      //Serial.println("lado 1");
     }
   }
-  if (contador == 2) {
+  if (sw3 == 0) {
+    if(sw1 == 0){
+      Serial.println(map(velocidade, 0, 100, 50, 100));
+    }
     if (executa2 == false) {
+      executa1 = false;
       passo(map(velocidade, 0, 100, 50, 100));
       executa2 = true;
-      Serial.println("lado 2");
+      //Serial.println("lado 2");
     }
   }
 }

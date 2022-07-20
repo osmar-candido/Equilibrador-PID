@@ -52,7 +52,7 @@ void sensor() {
     tempoEcho = pulseInLong(pinEcho, HIGH, 2900);
     if (tempoEcho < 2500) {
       atualizaMedia((calculaDistancia(tempoEcho) * 100));
-      sensorDebug();
+      
     }
     TimingSensor = millis();
   }
@@ -110,7 +110,7 @@ void sensorDebug() {
     Serial.println("------------------------------------");
   }
   if (debugMode == 1 && centimetros < 57.0) { //mostra os dados em grafico via serial
-    Serial.println(centimetros, 1);
+    Serial.print(centimetros, 1);
   }
 }
 void fimCurso() {

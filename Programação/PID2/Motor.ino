@@ -72,18 +72,18 @@ void passo(int direcao) {
     }*/
   if (sw1 == 0) {
     if (dir == 0) {
-      Serial.println("Esquerda");
+      //Serial.println("Esquerda");
       if (FimDir == HIGH) {
-        Serial.println("Sensor Esquerda");
+        //Serial.println("Sensor Esquerda");
         desabilitaDrive();
       } else {
         digitalWrite(enableMotor, LOW);
       }
     }
     if (dir == 1) {
-      Serial.println("Direta");
+      //Serial.println("Direta");
       if (FimEsq == HIGH) {
-        Serial.println("Sensor Direita");
+        //Serial.println("Sensor Direita");
         desabilitaDrive();
       } else {
         digitalWrite(enableMotor, LOW);
