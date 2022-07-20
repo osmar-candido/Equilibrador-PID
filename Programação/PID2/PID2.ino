@@ -1,3 +1,4 @@
+//inclusão das biblitecas
 #include <Wire.h>
 #include <LiquidCrystal_I2C.h>
 #include <TimerOne.h>
@@ -46,7 +47,8 @@ extern bool sw1;
 extern float centimetros;
 
 void setup() {
-  Serial.begin(9600);
+  Serial.begin(9600);//inicializa a serial
+  //chama todas as funções de configuração
   configuraSensor();
   configuraMotor();
   configuraDisplay();
@@ -54,22 +56,22 @@ void setup() {
   setupPinos();
 }
 void loop() {
-  atuadores();
-  sensor();
-  lerTeclado();
-  testes();
+  atuadores();//verifica o sw2 para selecionar o modo debug
+  sensor(); //efetua a leitura do sensor
+  lerTeclado(); //efetua a verificação do teclado
+  testes(); //chama a função a qual esta sendo utilizada para a geração das tabelas para o controle
 }
 
 void testes() {
   if(sw1 == 0){
-    sensorDebug();
-    Serial.print(",");
+    sensorDebug();//chama o valor do sensor na serial
+    Serial.print(","); //printa uma virgula
   }
   if (sw3 == 1) {
     if(sw1 == 0){
-      Serial.println(map(velocidade, 0, 100, 50, 0));
+      Serial.println(map(velocidade, 0, 100, 50, 0)); //exibe o valor enviado na função passo
     }
-    if (executa1 == false) {
+    if (executa1 == false) { //executa as funções abaixo apenas uma vez quando entrado neste modo, resetando caso seja alterada para o executa2
       executa2 = false;
       passo(map(velocidade, 0, 100, 50, 0));
       executa1 = true;
@@ -77,9 +79,9 @@ void testes() {
   }
   if (sw3 == 0) {
     if(sw1 == 0){
-      Serial.println(map(velocidade, 0, 100, 50, 100));
+      Serial.println(map(velocidade, 0, 100, 50, 100)); //exibe o valor enviado na função passo
     }
-    if (executa2 == false) {
+    if (executa2 == false) { //executa as funções abaixo apenas uma vez quando entrado neste modo, resetando caso seja alterada para o executa2
       executa1 = false;
       passo(map(velocidade, 0, 100, 50, 100));
       executa2 = true;
@@ -88,14 +90,14 @@ void testes() {
 }
 
 void atuadores() {
-  if (sw2 == 0) {
+  if (sw2 == 0) { //verifica o status do switch de alavanca 2 e seta o debug para visualização com label ou modo plotter
     debugMode = 1;
   } else {
     debugMode = 0;
   }
 }
 
-void setupPinos() {
+void setupPinos() { //setup de todos os pinos em uso
   pinMode(13, OUTPUT);
   pinMode(12, OUTPUT);
   pinMode(11, OUTPUT);
